@@ -1,0 +1,99 @@
+App\Entity\Location:
+  properties:
+    city:
+      - NotBlank:
+          groups: ["create", "edit"]
+      - Length:
+          groups: ["create", "edit"]
+          min: 2
+          max: 255
+          minMessage: "City name must be at least 2 characters long."
+          maxMessage: "City name cannot be longer than 255 characters."
+    country:
+      - NotBlank:
+          groups: ["create", "edit"]
+      - Length:
+          groups: ["create", "edit"]
+          min: 2
+          max: 2
+          minMessage: "Country code must be exactly 2 characters."
+          maxMessage: "Country code must be exactly 2 characters."
+    latitude:
+      - NotBlank:
+          groups: ["create", "edit"]
+      - Regex:
+          groups: ["create", "edit"]
+          pattern: "/^-?([1-8]?[0-9]|90)(\\.[0-9]{1,7})?$/"
+          message: "Latitude must be a valid decimal number between -90 and 90."
+    longitude:
+      - NotBlank:
+          groups: ["create", "edit"]
+      - Regex:
+          groups: ["create", "edit"]
+          pattern: "/^-?([1]?[0-7]?[0-9]|180)(\\.[0-9]{1,7})?$/"
+          message: "Longitude must be a valid decimal number between -180 and 180."
+
+App\Entity\Measurement:
+  properties:
+    location:
+      - NotBlank:
+          groups: ["create", "edit"]
+    date:
+      - NotBlank:
+          groups: ["create", "edit"]
+      - Type:
+          groups: ["create", "edit"]
+          type: \DateTimeInterface
+          message: "The date must be a valid date."
+    max_celsius:
+      - NotBlank:
+          groups: ["create", "edit"]
+      - Range:
+          groups: ["create", "edit"]
+          min: -100
+          max: 100
+          minMessage: "The temperature must be greater than or equal to -100 degrees Celsius."
+          maxMessage: "The temperature must be less than or equal to 100 degrees Celsius."
+    min_celsius:
+      - NotBlank:
+          groups: ["create", "edit"]
+      - Range:
+          groups: ["create", "edit"]
+          min: -100
+          max: 100
+          minMessage: "The temperature must be greater than or equal to -100 degrees Celsius."
+          maxMessage: "The temperature must be less than or equal to 100 degrees Celsius."
+    pressure_hpa:
+      - NotBlank:
+          groups: ["create", "edit"]
+      - Range:
+          groups: ["create", "edit"]
+          min: 800
+          max: 1200
+          minMessage: "The pressure must be greater than or equal to 800 hPa."
+          maxMessage: "The pressure must be less than or equal to 1200 hPa."
+    wind_speed_kmh:
+      - NotBlank:
+          groups: ["create", "edit"]
+      - Range:
+          groups: ["create", "edit"]
+          min: 0
+          max: 300
+          minMessage: "The wind speed must be greater than or equal to 0 km/h."
+          maxMessage: "The wind speed must be less than or equal to 300 km/h."
+    wind_direction:
+      - NotBlank:
+          groups: ["create", "edit"]
+      - Length:
+          groups: ["create", "edit"]
+          min: 1
+          max: 255
+    humidity_percent:
+      - NotBlank:
+          groups: ["create", "edit"]
+      - Range:
+          groups: ["create", "edit"]
+          min: 0
+          max: 100
+          minMessage: "Humidity must be greater than or equal to 0 percent."
+          maxMessage: "Humidity must be less than or equal to 100 percent."
