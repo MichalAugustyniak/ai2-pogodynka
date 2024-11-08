@@ -24,15 +24,25 @@
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row">
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                Menu
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="/location/">Locations</a></li>
-                <li><a class="dropdown-item" href="/measurement/">Measurements</a></li>
-            </ul>
+    <div class="row d-flex">
+        <div class="col-auto">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="margin: 5% 0 5% 0">
+                    Menu
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="/location/">Locations</a></li>
+                    <li><a class="dropdown-item" href="/measurement/">Measurements</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col"></div>
+        <div class="col-auto ml-auto">
+            {% if is_granted('ROLE_USER') %}
+                <a href="{{ path('app_logout') }}"><button class="btn btn-outline-danger" style="margin: 5% 0 5% 0">Logout</button></a>
+            {% else %}
+                <a href="{{ path('app_login') }}"><button class="btn btn-outline-success" style="margin: 5% 0 5% 0">Login</button></a>
+            {% endif %}
         </div>
     </div>
     <br>
