@@ -12,10 +12,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 #[AsCommand(
-    name: 'weather:country-city',
+    name: 'weather:city-country',
     description: 'Returns a list of weather measurements for the given country code and city name.',
 )]
-class WeatherCountryCityCommand extends Command
+class WeatherCityCountryCommand extends Command
 {
     private WeatherUtil $weatherUtil;
 
