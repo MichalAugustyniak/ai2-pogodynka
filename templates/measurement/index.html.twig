@@ -11,6 +11,7 @@
             <tr>
                 <th>Id</th>
                 <th>Date</th>
+                <th>City</th>
                 <th>Max temperature (&deg;C)</th>
                 <th>Min temperature (&deg;C)</th>
                 <th>Pressure (hPa)</th>
@@ -25,6 +26,7 @@
             <tr>
                 <td>{{ measurement.id }}</td>
                 <td>{{ measurement.date ? measurement.date|date('Y-m-d') : '' }}</td>
+                <td>{{ measurement.location.city }}</td>
                 <td>{{ measurement.maxCelsius }}</td>
                 <td>{{ measurement.minCelsius }}</td>
                 <td>{{ measurement.pressureHpa }}</td>

@@ -16,6 +16,10 @@
                 <td>{{ measurement.date ? measurement.date|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
+                <th>City</th>
+                <td>{{ measurement.location.city }}</td>
+            </tr>
+            <tr>
                 <th>Max_celsius</th>
                 <td>{{ measurement.maxCelsius }}</td>
             </tr>
