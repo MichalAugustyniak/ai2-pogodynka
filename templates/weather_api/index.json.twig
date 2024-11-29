@@ -1,0 +1,12 @@
+{
+    "measurements": [
+        {% for measurement in measurements %}
+        {
+            "date": "{{ measurement.date|date('Y-m-d') }}",
+            "maxCelsius": "{{ measurement.maxCelsius }}",
+            "minCelsius": "{{ measurement.minCelsius }}",
+            "fahrenheit": "{{ measurement.fahrenheit }}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ]
+}

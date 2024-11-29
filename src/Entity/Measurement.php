@@ -139,4 +139,10 @@ class Measurement
 
         return $this;
     }
+
+    public function getFahrenheit(): float
+    {
+        $average = ($this->getMaxCelsius() + $this->getMinCelsius()) / 2;
+        return ($average * 9/5) + 32;
+    }
 }
